@@ -22,13 +22,36 @@
     <script type="text/javascript" src="/app/assets/javascripts/calendar/dist/tavo-calendar.js"></script>
 
     <script>
+      var poo = "<%= @links.to_s %>"
+      console.log(poo)
+      let date = new Date()
+      let today = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+
       const my_calendar = new TavoCalendar('#my-calendar', {
-          date: "2014-12-21",
-          selected: ["2014-12-24"]
+          date: "2020-7-01",
+          selected: [today]
       })
 
       document.getElementById('my-calendar').addEventListener('calendar-select', (ev) => {
-        alert(my_calendar.getSelected());
+        let links = []
+        let events = []
+
+
+        <% @links.each do |link| %>
+        console.log("<%= link.date %>");
+          links.push("<%= link.date%>")
+        <% end %>
+
+        for (var link of links) {
+          console.log("in link for links");
+          console.log(link);
+          if(link == my_calendar.getSelected()){
+            events.push(link)
+          }
+        }
+
+        // returns array of events for current date
+        alert(events);
       })
     </script>
   </body>
