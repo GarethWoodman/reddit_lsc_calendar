@@ -6,5 +6,10 @@ RSpec.describe "home/index.html.erb", type: :view do
       visit 'home/index'
       expect(page).to have_content('Hello, world!')
     end
+
+    it 'shows event' do
+      visit 'home/index'
+      expect(page).to have_content(Time.now.month)
+    end
   end
 end
