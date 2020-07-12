@@ -22,50 +22,49 @@
     <script type="text/javascript" src="/app/assets/javascripts/calendar/dist/tavo-calendar.js"></script>
 
     <script>
-      // var poo = "<%= @links.to_s %>"
-      // console.log(poo)
       let date = new Date()
       let today = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
 
+      let dates = []
+
+      <% @links.each do |link| %>
+        dates.push("<%= link.date %>")
+      <% end %>
+
       const my_calendar = new TavoCalendar('#my-calendar', {
-          date: "20-6-01",
-          selected: [today]
+          date: "2020-06-05",
+          highlight: dates,
       })
+
+
+
+      document.getElementById('my-calendar')
 
       document.getElementById('my-calendar').addEventListener('calendar-select', (ev) => {
         document.getElementById("listed_events").innerHTML = ""
         let links = []
-        let events = []
         let link_data = ""
 
         <% @links.each do |link| %>
           link_data = {title: "<%= link.title %>",
                         date: "<%= link.date %>",
                         url: "<%= link.url %>"}
+
           links.push(link_data)
         <% end %>
 
         for (var link of links) {
-          console.log("in link for links");
-          console.log(link["date"]);
-
           if(link["date"] == my_calendar.getSelected()){
             var a = document.createElement('a');
             var content = document.createTextNode(link["title"]);
-            // Append the text node to anchor element.
             a.appendChild(content);
 
             a.title = link["title"]
             a.href  = link["url"]
             document.getElementById("listed_events").appendChild(a)
             document.getElementById("listed_events").appendChild(document.createElement("br"))
-
-            // events.push(a)
           }
         }
-
-        // returns array of events for current date
-        // alert(events.join("\n"));
       })
     </script>
 
