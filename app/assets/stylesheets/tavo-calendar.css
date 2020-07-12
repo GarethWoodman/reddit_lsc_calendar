@@ -18,7 +18,7 @@
 .tavo-calendar__header {
   display: flex;
   justify-content: space-between;
-  background-color: green;
+  background-color: #ff4301;
   color: white;
   align-items: center;
   padding: 4px 8px; }
@@ -72,18 +72,20 @@
   min-width: 14%;
   max-width: 15%;
   text-align: center;
-  cursor: pointer; }
+  cursor: pointer;
+  color: #cdcdcd}
   .tavo-calendar__day span {
     width: 26px;
     height: 26px;
     border-radius: 50%;
     display: inline-block;
     line-height: 26px;
-    font-size: 12px; }
+    font-size: 12px}
+    /* color: #cdcdcd} */
     .tavo-calendar__day span:hover {
       background-color: lightblue; }
   .tavo-calendar__day_highlight {
-    color: red !important; }
+    color: #ff4301 !important; }
   .tavo-calendar__day_abs-today {
     background-color: lightgoldenrodyellow;
     border-radius: unset; }
