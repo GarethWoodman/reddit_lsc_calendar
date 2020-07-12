@@ -28,7 +28,7 @@
       let today = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
 
       const my_calendar = new TavoCalendar('#my-calendar', {
-          date: "2020-7-01",
+          date: "20-6-01",
           selected: [today]
       })
 
@@ -43,8 +43,9 @@
         <% end %>
 
         for (var link of links) {
-          console.log("in link for links");
-          console.log(link);
+          // console.log("in link for links");
+          // console.log(link);
+          // console.log(my_calendar.getSelected());
           if(link == my_calendar.getSelected()){
             events.push(link)
           }

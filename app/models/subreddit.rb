@@ -26,8 +26,16 @@ class Link
 
   def date
     date = @object.title.scan(/[0-9]*\/[0-9]*\/[0-9]{2,}/)
-    if date.any?
-      return date[0].gsub("/", "-")
-    end
+    formatted(date[0]) if date.any?
+      # return date.gsub("/", "-")
+  end
+
+  private
+  def formatted(date)
+    day = date[0..1]
+    month = date[3..4]
+    year = date[6..7] + "20"
+
+    "#{year}-#{month}-#{day}"
   end
 end
