@@ -17,11 +17,12 @@ class Subreddit
 end
 
 class Link
-  attr_reader :title, :context
+  attr_reader :title, :context, :url
   def initialize(object)
     @object  = object
     @title   = object.title
     @context = object.selftext
+    @url     = object.url
   end
 
   def date
