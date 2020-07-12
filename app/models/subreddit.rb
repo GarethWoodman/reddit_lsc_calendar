@@ -5,7 +5,7 @@ class Subreddit
 
   def initialize(subreddit = "LondonSocialClub")
     @client = Reddit::Api.new
-    @links = @client.browse subreddit
+    @links = @client.browse subreddit, {limit: 120}
     construct_links
   end
 
