@@ -9,9 +9,12 @@
           font-family: Arial, Helvetica, sans-serif;
       }
 
+      .tavo-calendar__days {
+          /* height: 600px; */
+      }
+
       #my-calendar {
-          max-width: 600px;
-          max-height: 600px;
+        max-width: 400px;
       }
     </style>
   </head>
@@ -23,8 +26,7 @@
 
     <script>
       let date = new Date()
-      let today = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
-
+      let currentMonth = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + 01
       let dates = []
 
       <% @links.each do |link| %>
@@ -32,13 +34,11 @@
       <% end %>
 
       const my_calendar = new TavoCalendar('#my-calendar', {
-          date: "2020-06-05",
+          date: currentMonth,
           highlight: dates,
+          highlight_sunday: false,
+          highlight_saturday: false
       })
-
-
-
-      document.getElementById('my-calendar')
 
       document.getElementById('my-calendar').addEventListener('calendar-select', (ev) => {
         document.getElementById("listed_events").innerHTML = ""
@@ -54,18 +54,20 @@
         <% end %>
 
         for (var link of links) {
-          if(link["date"] == my_calendar.getSelected()){
-            var a = document.createElement('a');
-            var content = document.createTextNode(link["title"]);
-            a.appendChild(content);
-
-            a.title = link["title"]
-            a.href  = link["url"]
-            document.getElementById("listed_events").appendChild(a)
-            document.getElementById("listed_events").appendChild(document.createElement("br"))
-          }
+          if(link["date"] == my_calendar.getSelected()){ this._buildLink(link) }
         }
       })
+
+      function _buildLink(link){
+        var a = document.createElement('a');
+        var content = document.createTextNode(link["title"]);
+        a.appendChild(content);
+
+        a.title = link["title"]
+        a.href  = link["url"]
+        document.getElementById("listed_events").appendChild(a)
+        document.getElementById("listed_events").appendChild(document.createElement("br"))
+      }
     </script>
 
     <div id="listed_events">
