@@ -92,8 +92,8 @@
   .tavo-calendar__day_today:hover span {
     border-radius: 50%; }
   .tavo-calendar__day_off, .tavo-calendar__day_exp, .tavo-calendar__day_different-month, .tavo-calendar__day_lock {
-    cursor: default;
-    color: grey;
+    cursor: pointer;
+    color: #cdcdcd;
     background-color: unset; }
     .tavo-calendar__day_off day, .tavo-calendar__day_off day:hover, .tavo-calendar__day_exp day, .tavo-calendar__day_exp day:hover, .tavo-calendar__day_different-month day, .tavo-calendar__day_different-month day:hover, .tavo-calendar__day_lock day, .tavo-calendar__day_lock day:hover {
       background: unset; }
