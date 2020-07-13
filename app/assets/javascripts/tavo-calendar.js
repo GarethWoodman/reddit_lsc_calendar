@@ -415,7 +415,6 @@
         //
         // //Day lock
         // if (day_el.classList.contains(CLASS_CALENDAR_DAY_LOCK)) return;
-        console.log("clicked");
 
         if (this.config.range_select) {
             if ((!this.state.date_start && !this.state.date_end) || (this.state.date_start && this.state.date_end)) {
