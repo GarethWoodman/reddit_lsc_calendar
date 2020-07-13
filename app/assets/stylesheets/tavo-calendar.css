@@ -55,7 +55,8 @@
 .tavo-calendar__days {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 5px; }
+  margin-top: 5px;
+  height: 50vh; }
 
 .tavo-calendar__reset {
   float: right; }
@@ -79,9 +80,7 @@
     height: 26px;
     border-radius: 50%;
     display: inline-block;
-    line-height: 26px;
-    font-size: 12px}
-    /* color: #cdcdcd} */
+    font-size: 30px}
     .tavo-calendar__day span:hover {
       background-color: lightblue; }
   .tavo-calendar__day_highlight {
